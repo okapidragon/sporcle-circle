@@ -12,12 +12,12 @@
         <input type="text" name="centery" placeholder="Y coordinate of circle center (e.g. 100)" style="width: 300px;" required><br>
         <input type="text" name="radius" placeholder="Radius of circle (e.g. 20)" style="width: 300px;" required><br>
         
-        <button type="submit" style="border: none; outline: none; border-radius: 20px; background: linear-gradient(orange, amber)">Make Circle Coordinates</button>
+        <button type="submit" style="border: none; outline: none; border-radius: 20px; background: linear-gradient(orange, gold)">Make Circle Coordinates</button>
     </form>
 
   {% if result %}
       <pre id="myInput" style="background: #f4f4f4; padding: 10px; white-space: pre-wrap; word-wrap: break-word;">{{ result }}</pre>
-      <button onclick="copyFunction()" style="border: none; outline: none; border-radius: 20px; background: linear-gradient(orange, amber)">Copy Coordinates</button>
+      <button onclick="copyFunction()" style="border: none; outline: none; border-radius: 20px; background: linear-gradient(orange, gold)">Copy Coordinates</button>
   {% endif %}
   
   <script>
