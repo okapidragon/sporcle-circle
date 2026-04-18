@@ -5,8 +5,7 @@ import time
 import os
 
 template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
-app = Flask(__name__, static_folder='public', static_url_path='')
-
+app = Flask(__name__, template_folder=template_dir, static_folder='public', static_url_path='')
 def drawcircle(x, y, r):
     listt = []
     for i in range(75):
