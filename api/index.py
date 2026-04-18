@@ -21,12 +21,14 @@ def drawcircle(x, y, r):
 def home():
     output_message = ""
     if request.method == "POST":
-        
-        centerx = Decimal(request.form.get("centerx", "").strip())
-        centery = Decimal(request.form.get("centery", "").strip())
-        radius = Decimal(request.form.get("radius", "").strip())
-          
-        output_message = drawcircle(centerx, centery, radius)
+        try:
+            centerx = Decimal(request.form.get("centerx", "").strip())
+            centery = Decimal(request.form.get("centery", "").strip())
+            radius = Decimal(request.form.get("radius", "").strip())
+              
+            output_message = drawcircle(centerx, centery, radius)
+        except Exception as e:
+            output_message = "Please enter only numbers for the coordinates and radius"
     return render_template("index.html", result=output_message)
 
 app = app
