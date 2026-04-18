@@ -14,13 +14,18 @@
   <button onclick="copyFunction()">Copy</button>
 
   {% if result %}
-      <pre style="background: #f4f4f4; padding: 10px; white-space: pre-wrap; word-wrap: break-word;">{{ result }}</pre>
+      <pre id="myInput" style="background: #f4f4f4; padding: 10px; white-space: pre-wrap; word-wrap: break-word;">{{ result }}</pre>
   {% endif %}
+  
   <script>
       function copyFunction() {
         var copyText = document.getElementById("myInput");
-        navigator.clipboard.writeText(copyText.value);
-        alert("Copied!");
+        if (copyText) {
+          navigator.clipboard.writeText(copyText.innerText);
+          alert("Copied coordinates!");
+        } else {
+          alert("Nothing to copy yet! Please generate coordinates first.");
+        }
       }
   </script>
 </body>
