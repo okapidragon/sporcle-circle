@@ -11,8 +11,17 @@
         
         <button type="submit">Make Circle Coordinates</button>
     </form>
+  <button onclick="copyFunction()">Copy</button>
+
   {% if result %}
-        <pre style="background: #f4f4f4; padding: 10px; white-space: pre-wrap; word-wrap: break-word;">{{ result }}</pre>
-    {% endif %}
+      <pre style="background: #f4f4f4; padding: 10px; white-space: pre-wrap; word-wrap: break-word;">{{ result }}</pre>
+  {% endif %}
+  <script>
+      function copyFunction() {
+        var copyText = document.getElementById("myInput");
+        navigator.clipboard.writeText(copyText.value);
+        alert("Copied!");
+      }
+  </script>
 </body>
 </html>
