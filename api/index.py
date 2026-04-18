@@ -15,6 +15,7 @@ def drawcircle(x, y, r):
         listt.append(f"{round(curr_x, 1)},{round(curr_y, 1)}; ")
         
     return "".join(listt)
+@app.route('/', methods=['POST'])
 def home():
   output_message = ""
   centerx = Decimal(request.form.get("centerx", "").strip().lower())
