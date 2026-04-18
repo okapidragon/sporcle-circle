@@ -29,5 +29,3 @@ def home():
         except Exception as e:
             output_message = "Please enter only numbers for the coordinates and radius"
     return render_template("index.html", result=output_message)
-
-app = app
