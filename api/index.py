@@ -15,14 +15,16 @@ def drawcircle(x, y, r):
         listt.append(f"{round(curr_x, 1)},{round(curr_y, 1)}; ")
         
     return "".join(listt)
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST', 'GET'])
 def home():
-  output_message = ""
-  centerx = Decimal(request.form.get("centerx", "").strip().lower())
-  centery = Decimal(request.form.get("centery", "").strip().lower())
-  radius = Decimal(request.form.get("radius", "").strip().lower())
-  
-  output_message = drawcircle(centerx, centery, radius)
-  return render_template("index.html", result=output_message)
+    if request.method == "POST":
+        
+        output_message = ""
+        centerx = Decimal(request.form.get("centerx", "").strip().lower())
+        centery = Decimal(request.form.get("centery", "").strip().lower())
+        radius = Decimal(request.form.get("radius", "").strip().lower())
+          
+        output_message = drawcircle(centerx, centery, radius)
+    return render_template("index.html", result=output_message)
 
 app = app
