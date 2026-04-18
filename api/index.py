@@ -4,8 +4,14 @@ import math
 import time
 import os
 
-template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
-app = Flask(__name__, template_folder=template_dir, static_folder='public', static_url_path='')
+base_dir = os.path.dirname(__file__)
+template_dir = os.path.abspath(os.path.join(base_dir, '..', 'templates'))
+public_dir = os.path.abspath(os.path.join(base_dir, '..', 'public'))
+
+app = Flask(__name__, 
+            template_folder=template_dir, 
+            static_folder=public_dir, 
+            static_url_path='')
 def drawcircle(x, y, r):
     listt = []
     for i in range(75):
