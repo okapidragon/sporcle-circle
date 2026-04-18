@@ -19,12 +19,12 @@ def drawcircle(x, y, r):
     return "".join(listt)
 @app.route('/', methods=['POST', 'GET'])
 def home():
+    output_message = ""
     if request.method == "POST":
         
-        output_message = ""
-        centerx = Decimal(request.form.get("centerx", "").strip().lower())
-        centery = Decimal(request.form.get("centery", "").strip().lower())
-        radius = Decimal(request.form.get("radius", "").strip().lower())
+        centerx = Decimal(request.form.get("centerx", "").strip())
+        centery = Decimal(request.form.get("centery", "").strip())
+        radius = Decimal(request.form.get("radius", "").strip())
           
         output_message = drawcircle(centerx, centery, radius)
     return render_template("index.html", result=output_message)
