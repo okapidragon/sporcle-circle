@@ -1,0 +1,27 @@
+from decimal import Decimal
+import math
+import time
+
+template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
+app = Flask(__name__, template_folder=template_dir)
+
+def drawcircle(x, y, r):
+    listt = []
+    for i in range(75):
+        angle = math.radians(4.8*i)
+        curr_x = x + r * Decimal(math.cos(angle))
+        curr_y = y + r * Decimal(math.sin(angle))
+        
+        listt.append(f"{round(curr_x, 1)},{round(curr_y, 1)}; ")
+        
+    return "".join(listt)
+def home():
+  output_message = ""
+  centerx = Decimal(request.form.get("centerx", "").strip().lower())
+  centery = Decimal(request.form.get("centery", "").strip().lower())
+  radius = Decimal(request.form.get("radius", "").strip().lower())
+  
+  output_message = drawcircle(centerx, centery, radius)
+  return render_template("index.html", result=output_message)
+
+app = app
